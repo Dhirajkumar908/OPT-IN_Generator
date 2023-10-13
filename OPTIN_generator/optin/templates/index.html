@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>OPT-IN</title>
     
     <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet" type="text/css" />
     <style type="text/css">
@@ -23,11 +23,47 @@
 </head>
   <body>
     <div class="nav"><h1>Create and Download your OPT-in</h1></div>
+    <form action="" method="post">
+     {% csrf_token %} 
+    {{form.as_p}}
+    <button type="submit">save</button>
+  </form>
+    <!-- <form action="" class="" method="POST">
+      {% csrf_token %}
+      <div class="row opt_form" style="display: flex; padding: 15px;background-color: azure;">
+        <div class="col-sm-2">
+          <Label>NAME</Label>
+          {{form.name}}
+        </div>
+        <div class="col-sm-2">
+          <Label>NUMBER</Label>
+          {{form.number}}
+        </div>
+        <div class="col-sm-2">
+          <Label>EMAIL</Label>
+          {{form.email}}
+        </div>
+        <div class="col-sm-2">
+          <Label>DATE</Label>
+          {{form.data}}
+        </div>
+        <div class="col-sm-2">
+          <Label>HEADER</Label>
+          {{form.header}}
+        </div>
+        <div class="col-sm-2">
+          <Label>Footer</Label>
+          {{form.footer}}
+        </div>
+       
+        </div>
+        <div class="col-sm-2">
+          <button type="submit">save</button>
+         </div>
+    </form> -->
     <div class="container">
-        <!-- Content here -->
-    
-   
-    {% for optin in IptIn %}
+        <!-- Content here --
+    {% for optin in optIn %}
     <!--download button--> 
     <table width="1000" border="0" align="center" class="opt-tbl" >
         <tr>
@@ -35,7 +71,7 @@
             <td align="center">NUMBER: {{optin.number}}</td>
             <td align="center">EMAIL: {{optin.email}}</td>
             <td align="center"><button onclick="captureTable('tbl{{optin.id}}','{{optin.number}}')">Download OPT-IN</button></td>
-            <td><a href="{% url 'delete_Optin' id=optin.id %}"><img src="{% static 'img/delete.png' %}" alt="" width="40" height="25"></a></td>
+            <td><a href="delete/{{optin.id}}"><img src="{% static 'img/delete.png' %}" alt="" width="40" height="25"></a></td>
         </tr>
     </table>
 
