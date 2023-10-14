@@ -1,36 +1,32 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView
-from django.views.generic.edit import FormView
-from django.urls import reverse_lazy
-from .forms import *
-from .models import *
-import requests
 from django.http import HttpResponse
-# Create your views here.
-
-# class optinListView(ListView):
-#     model=OptIN
-#     template_name='index.html'
-#     context_object_name='IptIn'
+from .forms import OptINforms
+from .models import OptIN
 
 
 def Add_OPTIN(request):
-    form=OptINforms()
-    optIn=OptIN.objects.all()
-    if request.method=="POST":
-        data=OptINforms(request.POST)
-        print(data)
-        if data.is_valid():
-            data.save()
-    context={
-            "form":form,"optIn":optIn
-        }
-    return render(request, 'index.html', context)
+    if request.method == 'POST':
+        fm = OptINforms(request.POST, request.FILES)
+        if fm.is_valid():
+            fm.save()
+            
+            optIn = OptIN.objects.all()
+            return render(request, 'index.html', {"form": fm, "optIn": optIn})  # Replace 'success-url' with your actual success URL
+    else:
+        fm = OptINforms()
+
+    optIn = OptIN.objects.all()
+    return render(request, 'index.html', {"form": fm, "optIn": optIn})
+
+        
 
 #delete optin
 def delete_optin(request, id):
     opt=OptIN.objects.get(id=id)
     opt.delete()
     return redirect('Add_OPTIN')
+
+
+
 
     

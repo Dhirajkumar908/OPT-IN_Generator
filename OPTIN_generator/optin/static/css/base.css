@@ -1,0 +1,43 @@
+
+#opt_form{
+    display: flex;
+    padding: 15px 0px;
+    background-color: azure;
+    margin-bottom: 20px;
+}
+
+
+.nav{
+	width: 100%;
+	background-color: #356aa0;
+	text-align: center;
+	color: white;
+   
+} 
+.nav h1 {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+.result{
+    margin-bottom: 25px;
+}
+.form-add input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    background: #fff;
+    border: 1px solid #a5a5a5;
+}
+.form-add label {
+   font-size: 12px;
+   margin-bottom: 5px;
+}
+
+.footer{
+background-color: rgb(39, 39, 39);
+color: gold;
+
+}
+
