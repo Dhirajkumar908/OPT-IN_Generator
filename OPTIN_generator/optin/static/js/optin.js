@@ -18,3 +18,5 @@ function captureTable(tableid,imgname) {
         // If you want to save it as a PDF, you can send the image data to the server and convert it to PDF using a Python library.
     });
 }
+
+
