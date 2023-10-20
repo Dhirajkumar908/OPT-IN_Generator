@@ -10,7 +10,7 @@ function captureTable(tableid,imgname) {
         // Create a link to download the image
         const a = document.createElement('a');
         a.href = imgData;
-        a.download = imgname+'.png'; // Specify the desired file name and extension
+        a.download = imgname+'.jpeg'; // Specify the desired file name and extension
 
         // Trigger a click event on the link to download the image
         a.click();
@@ -18,3 +18,5 @@ function captureTable(tableid,imgname) {
         // If you want to save it as a PDF, you can send the image data to the server and convert it to PDF using a Python library.
     });
 }
+
+
