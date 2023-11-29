@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+<a href="{% url 'create_Blog' %}">add post</a>
+{% for blog in blogs %}
+<div class="row">
+    <div class="col"><h2><a href="{% url 'detail_blog' blog.pk %}">{{ blog.title }}</a></h2></div>
+
+</div>
+
+{% endfor %}
+
+
+</div>
+{% endblock %}
