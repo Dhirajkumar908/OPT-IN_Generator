@@ -2,14 +2,13 @@ from django.db import models
 
 
 
-
 class HeaderFooter(models.Model):
-    Name=models.CharField(max_length=20)
+    name=models.CharField(max_length=100)
     header=models.ImageField(upload_to='media')
     footer=models.ImageField(upload_to='media')
 
     def __str__(self):
-        return self.Name
+        return self.name
 
 
 # Create your models here.

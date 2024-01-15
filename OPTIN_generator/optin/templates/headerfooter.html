@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="login">
+        <div class="row m-5 justify-content-center ">
+        
+            <div class="col-6 border rounded bg-success p-3 g-0">
+                <h3 class="text-center text-white">Add Header and Footer</h3>
+                <form method="post" action="{% url 'headerfooter' %}">
+                    {% csrf_token %}
+                    <label for="" class="mt-2 text-white">Header footer</label>
+                    <input type="text" class="form-control" name="name">
+                    <label for="" class="mt-2 text-white">Header</label>
+                    <input type="file" class="form-control" name="header">
+                    <label for="" class="mt-2 text-white">Footer</label>
+                    <input type="file" class="form-control" name="footer">
+                    <button type="submit" class="btn bg-success-subtle mt-2">submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block js %}
+
+{% endblock %}

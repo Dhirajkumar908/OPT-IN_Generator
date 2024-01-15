@@ -9,9 +9,6 @@ class OptINforms(forms.ModelForm):
     class Meta:
         model=OptIN
         fields=["name","email","number","data","HeaderFooter"]
-        widgets = {
-            'data':  DateTimeInput( format=('%D-%M-%Y'),attrs={'type': 'date' }),
-            'number':NumberInput(attrs={'type':'number'})       
-               }
+        
 
        

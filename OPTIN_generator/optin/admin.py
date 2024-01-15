@@ -7,9 +7,7 @@ class AdminOptin(admin.ModelAdmin):
 
 @admin.register(HeaderFooter)
 class AdminHeaderFooter(admin.ModelAdmin):
-    list_display=['Name', 'header', 'footer']
+    list_display=['name', 'header', 'footer']
 
 
-# @admin.register(company)
-# class admincompany(admin.ModelAdmin):
-#     list_display=['company_name','company_header','company_footer']
+
