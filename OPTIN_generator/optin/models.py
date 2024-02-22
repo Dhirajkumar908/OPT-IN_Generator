@@ -16,7 +16,7 @@ class OptIN(models.Model):
     name=models.CharField(max_length=20)
     number=models.IntegerField()
     email=models.EmailField()
-    data=models.DateField()
+    data=models.CharField(max_length=10)
     HeaderFooter=models.ForeignKey(HeaderFooter,on_delete=models.DO_NOTHING, null=True)
     # header=models.ImageField(upload_to='media')
     # footer=models.ImageField(upload_to='media')

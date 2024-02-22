@@ -1,74 +1,83 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block css %}
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+{% extends 'base.html' %} {% load static %} {% block css %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet" type="text/css" />
-{% endblock %}
-
-
-{% block content %}
+{% endblock %} {% block content %}
 
 <div class="container">
-{% if optIn %}
-     
-    {% for optin in optIn %}
-    
-    <table width="900" border="0" align="center" class="opt-tbl mb-2  bg-success-subtle" >
-        <tr class="p-2">
-            <td align="center" class=""> NAME: {{optin.name}}</td>
-            <td align="center" class="">NUMBER: {{optin.number}}</td>
-            <td align="center" class="">EMAIL: {{optin.email}}</td>
-            <td align="center" class="">
-              <button class="btn " onclick="captureTable('tbl{{optin.id}}','{{optin.number}}')">Download<svg xmlns="http://www.w3.org/2000/svg" width="35" height="25" fill="#2e659c" class="bi bi-cloud-download-fill" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-            </svg>
-          </button></td>
-            <td><a href="delete/{{optin.id}}"><img src="{% static 'img/delete.png' %}" alt="" width="40" height="25"></a></td>
-        </tr>
-    </table>
-<!--OPTIN table-->     
-    <div class="optin result">   
-      <table class="opt-tbl mb-4" width="900" border="0" align="center" cellpadding="0" cellspacing="0" id="tbl{{optin.id}}">
-        
-        <tr>
-          <td><img src="{{ optin.HeaderFooter.header.url }}" width="900"/></td>
-        </tr>
-        <tr>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td><div class="main">
+  {% if optIn %} {% for optin in optIn %}
+  
+
+  <table width="900" border="0" align="center" class="opt-tbl mb-2 bg-success-subtle">
+    <tr class="p-2">
+      
+      <td align="center" class="">NAME: {{optin.name}}</td>
+      <td align="center" class="">NUMBER: {{optin.number}}</td>
+      <td align="center" class="">EMAIL: {{optin.email}}</td>
+      <td align="center" class="">
+        <button class="btn" onclick="captureTable('tbl{{optin.id}}','{{optin.number}}')">
+          Download<svg xmlns="http://www.w3.org/2000/svg" width="35" height="25" fill="#2e659c"
+            class="bi bi-cloud-download-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z" />
+          </svg>
+        </button>
+      </td>
+      <td>
+        <a href="delete/{{optin.id}}"><img src="{% static 'img/delete.png' %}" alt="" width="40" height="25" /></a>
+      </td>
+    </tr>
+  </table>
+  <!--OPTIN table-->
+  <div class="optin result">
+    <table class="opt-tbl mb-4" width="900" border="0" align="center" cellpadding="0" cellspacing="0"
+      id="tbl{{optin.id}}">
+      <tr>
+        <td><img src="{{ optin.HeaderFooter.header.url }}" width="900" /></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="main">
             <div class="leftpanel">
-              <div class="hd1" style="background:#333;">Admin Menu </div>
-                <table class="table table-bordered" width="200" border="0" cellspacing="1" cellpadding="5">
-                  <tr>
-                    <td width="12" bgcolor="#FFFFFF"><img src="{% static 'img/arrow.jpeg' %}" width="10" height="12" /></td>
-                    <td width="189" bgcolor="#FFFFFF"><strong>List Registred Person</strong></td>
-                  </tr>
-                  <tr>
-                    <td bgcolor="#FFFFFF"><img src="{% static 'img/arrow.jpeg' %}" width="10" height="12" /></td>
-                    <td bgcolor="#FFFFFF">Change Password</td>
-                  </tr>
-                  <tr>
-                    <td bgcolor="#FFFFFF"><img src="{% static 'img/arrow.jpeg' %}" width="10" height="12" /></td>
-                    <td bgcolor="#FFFFFF">Logout</td>
-                  </tr>
-                </table>
+              <div class="hd1" style="background: #333">Admin Menu</div>
+              <table class="table table-bordered" width="200" border="0" cellspacing="1" cellpadding="5">
+                <tr>
+                  <td width="12" bgcolor="#FFFFFF">
+                    <img src="{% static 'img/arrow.jpeg' %}" width="10" height="12" />
+                  </td>
+                  <td width="189" bgcolor="#FFFFFF">
+                    <strong>List Registred Person</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td bgcolor="#FFFFFF">
+                    <img src="{% static 'img/arrow.jpeg' %}" width="10" height="12" />
+                  </td>
+                  <td bgcolor="#FFFFFF">Change Password</td>
+                </tr>
+                <tr>
+                  <td bgcolor="#FFFFFF">
+                    <img src="{% static 'img/arrow.jpeg' %}" width="10" height="12" />
+                  </td>
+                  <td bgcolor="#FFFFFF">Logout</td>
+                </tr>
+              </table>
             </div>
             <div class="rightpanel">
-              <div class="hd1" style="background:#333">
+              <div class="hd1" style="background: #333">
                 <table width="100%">
                   <tr>
                     <th colspan="4">List Registred Person</th>
-                    <th style="width: 50%;">
-                     
+                    <th style="width: 50%">
                       <form id="form1" name="form1" method="post" action="">
                         <span class="style6">Search</span>
-                        <input type="text" name="textfield" placeholder="{{optin.number}}" style="font-size: 16px; color: #000;"/>
+                        <input type="text" name="textfield" placeholder="{{optin.number}}"
+                          style="font-size: 16px; color: #000" />
                         <button>GO</button>
-                    </form>
-                   </th>
+                      </form>
+                    </th>
                   </tr>
                 </table>
               </div>
@@ -76,49 +85,195 @@
                 <table class="table table-bordered" cellpadding="5">
                   <thead class="thead-dark">
                     <tr>
-                      <th colspan="2" style="background-color: #d9d9d9;border: 2px solid #000;">Name</th>
-                      <th colspan="2" style="background-color: #d9d9d9;border: 2px solid #000;">Mobile</th>
-                      <th colspan="3" style="background-color: #d9d9d9;border: 2px solid #000;">Email</th>
-                      <th colspan="2" style="background-color: #d9d9d9;border: 2px solid #000;">Date</th>
-                      <th colspan="2" style="background-color: #d9d9d9;border: 2px solid #000;">&nbsp;</th>
+                      <th colspan="2" style="
+                          background-color: #d9d9d9;
+                          border: 2px solid #000;
+                        ">
+                        Name
+                      </th>
+                      <th colspan="2" style="
+                          background-color: #d9d9d9;
+                          border: 2px solid #000;
+                        ">
+                        Mobile
+                      </th>
+                      <th colspan="3" style="
+                          background-color: #d9d9d9;
+                          border: 2px solid #000;
+                        ">
+                        Email
+                      </th>
+                      <th colspan="2" style="
+                          background-color: #d9d9d9;
+                          border: 2px solid #000;
+                        ">
+                        Date
+                      </th>
+                      <th colspan="2" style="
+                          background-color: #d9d9d9;
+                          border: 2px solid #000;
+                        ">
+                        &nbsp;
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td colspan="2" style="border: 2px solid #000;">{{optin.name}}</td>
-                      <td colspan="2" style="border: 2px solid #000;" align="right"><span style="background:#FF0">{{optin.number}}</span></td>
-                      <td colspan="3" style="border: 2px solid #000;">{{optin.email}}</td>
-                      <td colspan="2" style="border: 2px solid #000;">{{optin.data}}</td>
-                      <td colspan="2" style="border: 2px solid #000;"><img src="{% static 'img/croos.jpeg' %}" width="20" height="20" /></td>
+                      <td colspan="2" style="border: 2px solid #000">
+                        {{optin.name}}
+                      </td>
+                      <td colspan="2" style="border: 2px solid #000" align="right">
+                        <span style="background: #ff0">{{optin.number}}</span>
+                      </td>
+                      <td colspan="3" style="border: 2px solid #000">
+                        {{optin.email}}
+                      </td>
+                      <td colspan="2" style="border: 2px solid #000">
+                        {{optin.data}}
+                      </td>
+                      <td colspan="2" style="border: 2px solid #000">
+                        <img src="{% static 'img/croos.jpeg' %}" width="20" height="20" />
+                      </td>
                     </tr>
-                </tbody>
+                  </tbody>
                 </table>
               </div>
             </div>
           </div>
         </td>
-        </tr>
-        <tr>
-          <td height="50">&nbsp;</td>
-        </tr>
-        <tr>
-          <td><img src="{{ optin.HeaderFooter.footer.url }}" width="900"/></td>
-        </tr>
-      </table>
-      
-    </div> 
-   {% endfor %}
+      </tr>
+      <tr>
+        <td height="50">&nbsp;</td>
+      </tr>
+      <tr>
+        <td><img src="{{ optin.HeaderFooter.footer.url }}" width="900" /></td>
+      </tr>
+    </table>
+  </div>
+  {% endfor %} {% else %}
+  <div class="text-center mb-5 mx-5 p-5">
+    <img src="{% static 'img/giphy.gif' %}" alt="" class="emoji" />
+    <h1 class="alert bg-success-subtle text-center">
+      There is no any OPT-in Please Add user detaiils to Ganerate OPT-in
+    </h1>
+  </div>
 
-   {% else %}
-    <div class="text-center mb-5 mx-5 p-5">
-    <img src="{% static 'img/giphy.gif' %}" alt="" class="emoji">
-    <h1 class="alert bg-success-subtle text-center" >There is no any OPT-in Please Add user detaiils to Ganerate OPT-in</h1>
-    </div>
-
-   {% endif %}
+  {% endif %}
 </div>
 
 {% endblock %}
+
+<!-- side bar -->
+
+{% block sidebar %}
+<h4 class="text-center bg-success-subtle p-2">Create OPT-in</h4>
+<form class="form-add" action="{% url 'Add_OPTIN' %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="mt-2">
+    <label class="d-block">NAME</label>
+    <input type="text" name="name" class="form-control" />
+  </div>
+
+  <div class="mt-2">
+    <label class="d-block">NUMBER</label>
+    <input type="text" name="number" class="form-control" />
+  </div>
+
+  <div class="mt-2">
+    <label class="d-block">EMAIL</label>
+    <input type="email" name="email" class="form-control" />
+  </div>
+
+  <div class="mt-2">
+    <label class="d-block">DATE</label>
+    <input type="date" name="date" class="form-control" />
+  </div>
+
+  <div class="mt-2">
+    <label class="d-block">HEADER FOOTER</label>
+    <select aria-label="Default select example" name="header_footer" class="form-control">
+      <option selected>Select</option>
+      {% for i in headerFooter %}
+      <option value="{{i.id}}" name="header_footer">{{i.name}}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div>
+    <button class="btn bg-success text-white mt-4 px-4" type="submit">
+      save
+    </button>
+  </div>
+</form>
+
+<hr />
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  BULK UPLOAD 
+</button> Upload csv file(.csv)
+<a class="btn btn-danger mt-2" href="{% url 'dlt_all' %}">Delete all</a>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-success-subtle">
+        <h5 class="modal-title" id="exampleModalLabel">Upload csv file to Ganerate bulk option </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="post" enctype="multipart/form-data" action="{% url 'upload_csv' %}">
+          {% csrf_token %}
+          <div class="mt-2">
+            <label class="d-block">UPLOAD CSV FILE</label>
+            <input type="file" name="file" class="form-control" required>
+          </div>
+          <div class="mt-2">
+            <label class="d-block">SELECT HEADER/FOOTER</label>
+            <select name="header_footer" class="form-control">
+              <option selected>Select</option>
+              {% for hf in headerFooter %}
+                <option value="{{ hf.id }}" >{{ hf.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <button type="submit" class="btn btn-success mt-3">Upload</button>
+          <button type="button" class="btn btn-secondary mt-3" data-bs-dismiss="modal">Close</button>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- <form method="post" enctype="multipart/form-data" action="{% url 'upload_csv' %}">
+  {% csrf_token %}
+  <div class="mt-2">
+    <label class="d-block">UPLOAD CSV FILE</label>
+    <input type="file" name="file" class="form-control" required>
+  </div>
+  <div class="mt-2">
+    <label class="d-block">SELECT HEADER/FOOTER</label>
+    <select name="header_footer" class="form-control">
+      <option selected>Select</option>
+      {% for hf in headerFooter %}
+        <option value="{{ hf.id }}">{{ hf.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button type="submit" class="btn btn-success mt-3">Upload</button>
+</form> -->
+
+{% for message in messages %}
+  <div class="alert mt-2 alert-danger alert-{{ message.tags }}" >
+    {{ message }}
+  </div>
+{% endfor %}
+
+
+{% endblock %}
+
+<!-- js link -->
 
 {% block js %}
 <script src="{% static 'js/optin.js' %}"></script>

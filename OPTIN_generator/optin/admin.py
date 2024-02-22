@@ -11,3 +11,14 @@ class AdminHeaderFooter(admin.ModelAdmin):
 
 
 
+
+#// change the site name
+
+admin.site.site_header = "DKoptin"
+
+# #//change the site title
+
+admin.site.site_title = "DKoptin"
+
+#admin site intex title
+admin.site.index_title = 'OPT-IN Genarator Admin Dashbord'   

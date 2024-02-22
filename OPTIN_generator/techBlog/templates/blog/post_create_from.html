@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+ {% load static %}
+
+
+{% block content %}
+
+<div class="container">
+   
+    <!-- <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="btn btn-secondry" type="submit" >Save blog</button>
+       </form> -->
+<div class="row justify-content-center">
+  <div class="col mx-5">
+    
+    <form method="POST", action="create_post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label  class="form-label">Title</label>
+          {{form.title}}
+          
+        </div>
+        <div class="mb-3">
+          <label  class="form-label">Short_discription</label>
+          {{form.short_discription}}
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">Content</label>
+            {{form.content}}
+           
+          </div>
+
+          <div class="mb-3">
+            <label  class="form-label">Image</label>
+            {{form.img}}
+            <button type="submit" class="btn bg-success text-white">Submit</button>
+            {{message}}
+          </div>
+     
+        
+      </form>
+
+  
+    </div>
+  </div>
+  
+
+</div>
+
+{% endblock %}
+
+
+{% block sidebar %} 
+
+<div><a href=""></a><button>Create Post</button></a></div>
+
+{% endblock %}

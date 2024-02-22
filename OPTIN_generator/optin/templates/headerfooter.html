@@ -13,7 +13,7 @@
         
             <div class="col-6 border rounded bg-success p-3 g-0">
                 <h3 class="text-center text-white">Add Header and Footer</h3>
-                <form method="post" action="{% url 'headerfooter' %}">
+                <form method="post" action="{% url 'headerfooter' %}" enctype="multipart/form-data">
                     {% csrf_token %}
                     <label for="" class="mt-2 text-white">Header footer</label>
                     <input type="text" class="form-control" name="name">
@@ -22,6 +22,7 @@
                     <label for="" class="mt-2 text-white">Footer</label>
                     <input type="file" class="form-control" name="footer">
                     <button type="submit" class="btn bg-success-subtle mt-2">submit</button>
+                    <samp class="text-white">{{message}}</samp>
                 </form>
             </div>
         </div>

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+ {% load static %}
+  {% block content %}
+<div class="container ">
+  {% for post in blogs %}
+  <div class="card mb-3 mt-3 mx-3">
+    <div class="row g-0 p-2  bg-success-subtle">
+      <div class="col-md-3">
+        <img
+          src="{{post.img.url}}"
+          class="img-fluid rounded-start"
+          alt="..."
+          style="width: 200px; height: 200px"
+        />
+      </div>
+      <div class="col-md-9">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">
+            <small class="text-muted">{{post.create_at}}</small>
+          </p>
+          <p class="card-text">{{post.short_discription|truncatechars:80}}</p>
+          
+          <p class="card-text">
+            <small class="text-muted">{{post.content|truncatechars:200}} <a href="{% url 'detail_view' post.pk %}">read more</a></small>
+          </p>
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
+
+
+{% block sidebar %} 
+
+<div><a href="{% url 'create_post' %}"><button class="btn bg-success-subtle">Create Post</button></a></div>
+
+{% endblock %}
