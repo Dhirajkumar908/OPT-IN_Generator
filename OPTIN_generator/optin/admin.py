@@ -3,13 +3,15 @@ from .models import *
 # Register your models here.
 @admin.register(OptIN)
 class AdminOptin(admin.ModelAdmin):
-    list_display=['name', 'number', 'email', 'data']
+    list_display=['user','name', 'number', 'email', 'data']
 
 @admin.register(HeaderFooter)
 class AdminHeaderFooter(admin.ModelAdmin):
     list_display=['name', 'header', 'footer']
 
-
+@admin.register(User_account)
+class AdminUser_account(admin.ModelAdmin):
+    list_display=['user', 'credit']
 
 
 #// change the site name

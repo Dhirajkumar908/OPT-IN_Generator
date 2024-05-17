@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 
 class HeaderFooter(models.Model):
@@ -13,6 +13,7 @@ class HeaderFooter(models.Model):
 
 # Create your models here.
 class OptIN(models.Model):
+    user=models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     name=models.CharField(max_length=20)
     number=models.IntegerField()
     email=models.EmailField()
@@ -21,3 +22,7 @@ class OptIN(models.Model):
     # header=models.ImageField(upload_to='media')
     # footer=models.ImageField(upload_to='media')
     
+class User_account(models.Model):
+    user=models.OneToOneField(User, on_delete=models.CASCADE)
+    credit=models.IntegerField()
+

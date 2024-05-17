@@ -12,8 +12,8 @@ urlpatterns=[
     path('delete/<int:id>', views.delete_optin, name='delete_optin'),  
     path('headerfooter', views.headerfooter, name='headerfooter'),
     path('upload_csv', views.upload_csv, name="upload_csv"),
-    path('dlt_all', views.dlt_all, name='dlt_all')
-
+    path('dlt_all', views.dlt_all, name='dlt_all'),
+    path('user_profile', views.user_profile, name='user_profile')
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -4,12 +4,17 @@
 {% endblock %} {% block content %}
 
 <div class="container">
+{% if error %}
+<div class="mx-5">
+    <p class="alert alert-warning text-center fs-5" role="alert">{{error}}</p>
+</div>
+{% endif %}
   {% if optIn %} {% for optin in optIn %}
-  
+
 
   <table width="900" border="0" align="center" class="opt-tbl mb-2 bg-success-subtle">
     <tr class="p-2">
-      
+
       <td align="center" class="">NAME: {{optin.name}}</td>
       <td align="center" class="">NUMBER: {{optin.number}}</td>
       <td align="center" class="">EMAIL: {{optin.email}}</td>
@@ -166,7 +171,7 @@
 <!-- side bar -->
 
 {% block sidebar %}
-<h4 class="text-center bg-success-subtle p-2">Create OPT-in</h4>
+<h4 class="text-center bg-success-subtle text-success p-2">Create OPT-in</h4>
 <form class="form-add" action="{% url 'Add_OPTIN' %}" method="post" enctype="multipart/form-data">
   {% csrf_token %}
   <div class="mt-2">
@@ -200,8 +205,8 @@
   </div>
 
   <div>
-    <button class="btn bg-success text-white mt-4 px-4" type="submit">
-      save
+    <button class="btn bg-success text-white mt-4 px-4" type="submit" style="width:130px">
+      Save
     </button>
   </div>
 </form>
@@ -209,10 +214,11 @@
 <hr />
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  BULK UPLOAD 
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width:130px">
+  Bulk Upload
 </button> Upload csv file(.csv)
-<a class="btn btn-danger mt-2" href="{% url 'dlt_all' %}">Delete all</a>
+<br>
+<a class="btn btn-danger mt-2" href="{% url 'dlt_all' %}" style="width:130px">Delete all</a>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -241,28 +247,10 @@
           <button type="button" class="btn btn-secondary mt-3" data-bs-dismiss="modal">Close</button>
         </form>
       </div>
-      
+
     </div>
   </div>
 </div>
-
-<!-- <form method="post" enctype="multipart/form-data" action="{% url 'upload_csv' %}">
-  {% csrf_token %}
-  <div class="mt-2">
-    <label class="d-block">UPLOAD CSV FILE</label>
-    <input type="file" name="file" class="form-control" required>
-  </div>
-  <div class="mt-2">
-    <label class="d-block">SELECT HEADER/FOOTER</label>
-    <select name="header_footer" class="form-control">
-      <option selected>Select</option>
-      {% for hf in headerFooter %}
-        <option value="{{ hf.id }}">{{ hf.name }}</option>
-      {% endfor %}
-    </select>
-  </div>
-  <button type="submit" class="btn btn-success mt-3">Upload</button>
-</form> -->
 
 {% for message in messages %}
   <div class="alert mt-2 alert-danger alert-{{ message.tags }}" >

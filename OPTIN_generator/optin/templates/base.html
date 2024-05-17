@@ -35,17 +35,18 @@
               <a class="nav-link display-4" href="{% url 'headerfooter' %}"
                 style="font-size: 20px; color: rgb(252, 251, 251)">Add HeaderFooter</a>
             </li>
-            <li class="nav-item">
+            {% comment %} <li class="nav-item">
               <a class="nav-link display-4" href="/blog/"
                 style="font-size: 20px; color: rgb(252, 251, 251)">Blogs</a>
-            </li>
+            </li> {% endcomment %}
           </ul>
           <div class="d-lg-flex col-lg-3 justify-content-lg-end">
-            <a class="btn bg-primary-subtle mx-4" href="/admin/" target="_blank">Go to Admin</a>
+            <a class="btn bg-primary-subtle mx-2  " href="/admin/" target="_blank">Admin</a>
             {% if user.is_authenticated %}
-            <a href="{% url 'user_logout' %}"><button class="btn bg-primary-subtle">LOGOUT</button></a>
+            <a href="{% url 'user_profile' %}"><button class="btn bg-primary-subtle mx-2">Porfile</button></a>
+            <a href="{% url 'user_logout' %}"><button class="btn bg-primary-subtle">Logout</button></a>
             {% else %}
-            <a href="{% url 'userlogin' %}"><button class="btn bg-primary-subtle">LOGIN</button></a>
+            <a href="{% url 'userlogin' %}"><button class="btn bg-primary-subtle">Login</button></a>
             {% endif %}
           </div>
         </div>
