@@ -42,7 +42,7 @@ The system includes admin functionality, allowing for user creation, credit assi
 
 1. Clone this repository:
     ```bash
-    git clone [https://github.com/yourusername/optin_generator.git](https://github.com/Dhirajkumar908/OPT-IN_Generator.git)
+    git clone (https://github.com/Dhirajkumar908/OPT-IN_Generator.git)
     ```
 2. Install the required dependencies:
     ```bash
