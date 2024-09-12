@@ -29,6 +29,7 @@ The system includes admin functionality, allowing for user creation, credit assi
 1. **Header & Footer Customization**: Users can add and update the header and footer sections to be used in the opt-ins.
 2. **Customer Data Input**:
    - Add customer details through the web form.
+   - Select the name of the Header and footer
    - Bulk upload customer details via CSV.
 3. **Opt-in Management**: After adding customers, their opt-ins are displayed on the panel with options to download (as an image) or delete them.
 4. **Bulk Actions**:
